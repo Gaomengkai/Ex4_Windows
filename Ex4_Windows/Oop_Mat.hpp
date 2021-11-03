@@ -35,7 +35,7 @@ template MAT<long long>;
 
 
 /// <summary>
-/// 
+/// 矩阵定义
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="r"></param>
@@ -46,10 +46,10 @@ MAT<T>::MAT(int r, int c) :r(r), c(c), e(new T[r * c]) {}
 
 
 /// <summary>
-/// 
+/// 深拷贝构造
 /// </summary>
 /// <typeparam name="T"></typeparam>
-/// <param name="a"></param>
+/// <param name="a">源矩阵</param>
 template<typename T>
 MAT<T>::MAT(const MAT& a) : e(new T[a.r * a.c]), r(a.r), c(a.c)
 {
@@ -62,10 +62,10 @@ MAT<T>::MAT(const MAT& a) : e(new T[a.r * a.c]), r(a.r), c(a.c)
 
 
 /// <summary>
-/// 
+/// 移动构造
 /// </summary>
-/// <typeparam name="T"></typeparam>
-/// <param name="a"></param>
+/// <typeparam name="T">元素类型</typeparam>
+/// <param name="a">源矩阵</param>
 /// <returns></returns>
 template<typename T>
 MAT<T>::MAT(MAT&& a) noexcept :e(a.e), r(a.r), c(a.c)
@@ -78,7 +78,7 @@ MAT<T>::MAT(MAT&& a) noexcept :e(a.e), r(a.r), c(a.c)
 
 
 /// <summary>
-/// 
+/// 析构
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <returns></returns>
@@ -97,9 +97,9 @@ MAT<T>::~MAT() noexcept
 
 
 /// <summary>
-/// 
+/// 取矩阵r行的第一个元素地址，r越界抛异常
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="T">元素类型</typeparam>
 /// <param name="r"></param>
 /// <returns></returns>
 template<typename T>
@@ -118,7 +118,7 @@ T* const MAT<T>::operator[](int r)
 
 
 /// <summary>
-/// 
+/// 矩阵加法
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -143,7 +143,7 @@ MAT<T> MAT<T>::operator+(const MAT& a) const
 
 
 /// <summary>
-/// 
+/// 矩阵减法
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -167,7 +167,7 @@ MAT<T> MAT<T>::operator-(const MAT& a) const
 
 
 /// <summary>
-/// 
+/// 矩阵乘法
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -198,7 +198,7 @@ MAT<T> MAT<T>::operator*(const MAT& a) const
 
 
 /// <summary>
-/// 
+/// 矩阵转置
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <returns></returns>
@@ -219,7 +219,7 @@ MAT<T> MAT<T>::operator~() const
 
 
 /// <summary>
-/// 
+/// 深拷贝赋值运算
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -248,7 +248,7 @@ MAT<T>& MAT<T>::operator=(const MAT& a)
 
 
 /// <summary>
-/// 
+/// 移动赋值运算
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -276,7 +276,7 @@ MAT<T>& MAT<T>::operator=(MAT&& a) noexcept
 
 
 /// <summary>
-/// 
+/// “+=”运算
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -302,7 +302,7 @@ MAT<T>& MAT<T>::operator+=(const MAT& a)
 
 
 /// <summary>
-/// 
+/// “-=”运算
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -328,7 +328,7 @@ MAT<T>& MAT<T>::operator-=(const MAT& a)
 
 
 /// <summary>
-/// 
+/// “*=”运算
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="a"></param>
@@ -360,7 +360,7 @@ MAT<T>& MAT<T>::operator*=(const MAT& a)
 
 
 /// <summary>
-/// 
+/// print输出至s并返回s：列用空格隔开，行用回车结束
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <param name="s"></param>
